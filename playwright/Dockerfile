@@ -5,10 +5,11 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
+ENV PLAYWRIGHT_BROWSERS_PATH=0
 ENV PLAYWRIGHT_EXECUTABLE_PATH=/usr/bin/chromium
 
 RUN mkdir -p /var/app
-COPY ./target/playwright-1.0.0.jar /var/app/playwright.jar
+COPY ./artifact/playwright-1.0.0.jar /var/app/playwright.jar
 
 EXPOSE 8080
 WORKDIR /var/app
